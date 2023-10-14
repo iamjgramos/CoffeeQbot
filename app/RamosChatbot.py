@@ -61,16 +61,16 @@ def get_unknown_message():
     unknown_message = [
             'I don\'t understand your message, please try again.',
             'Hmmm... I may have limited information about your message, I am sorry.',
-            'I don\'t have answer to your question, try different question.'
+            'I don\'t have answer to your question, try differentagain.'
         ]
 
     return random.choice(unknown_message)
 
-topics_responses = 'https://raw.githubusercontent.com/iamjgramos/CoffeQbot/main/kp.csv'
+topics_responses = 'https://raw.githubusercontent.com/iamjgramos/CoffeeQbot/main/app/kp.csv'
 
 chatdata_df = pd.read_csv(topics_responses)
 
-""" Ask anything about Coffee"""
+""" Ask anything about Coffee ☕"""
 
 last_query = ''
 
@@ -91,7 +91,7 @@ for message in st.session_state.messages:
     with st.chat_message(message['role']):
         st.markdown(message['content'])
 
-prompt = st.chat_input('Ask about Coffee or any question about Coffee')
+prompt = st.chat_input('Ask something about coffee...')
 
 if prompt is not None:
     last_query = prompt
